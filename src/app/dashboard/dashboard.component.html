@@ -1,12 +1,8 @@
 <div class="panel-header panel-header-lg">
-    <canvas baseChart id="bigDashboardChart"
-                [datasets]="lineBigDashboardChartData"
-                [labels]="lineBigDashboardChartLabels"
-                 [colors]="lineBigDashboardChartColors"
-                [options]="lineBigDashboardChartOptions"
-                [chartType]="lineBigDashboardChartType"
-                (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)"></canvas>
+  <canvas baseChart id="bigDashboardChart" [datasets]="lineBigDashboardChartData" [labels]="lineBigDashboardChartLabels"
+    [colors]="lineBigDashboardChartColors" [options]="lineBigDashboardChartOptions"
+    [chartType]="lineBigDashboardChartType" (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"></canvas>
 </div>
 
 <div class="main-content">
@@ -17,7 +13,8 @@
           <h5 class="card-category">Global Sales</h5>
           <h4 class="card-title">Shipped Products</h4>
           <div ngbDropdown>
-            <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" ngbDropdownToggle>
+            <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret"
+              ngbDropdownToggle>
               <i class="now-ui-icons loader_gear"></i>
             </button>
             <div ngbDropdownMenu class="dropdown-menu-right">
@@ -30,14 +27,9 @@
         </div>
         <div class="card-body">
           <div class="chart-area">
-            <canvas baseChart id="lineChartExample"
-                        [datasets]="lineChartData"
-                        [labels]="lineChartLabels"
-                        [colors]="lineChartColors"
-                        [options]="lineChartOptions"
-                        [chartType]="lineChartType"
-                        (chartHover)="chartHovered($event)"
-                        (chartClick)="chartClicked($event)"></canvas>
+            <canvas baseChart id="lineChartExample" [datasets]="lineChartData" [labels]="lineChartLabels"
+              [colors]="lineChartColors" [options]="lineChartOptions" [chartType]="lineChartType"
+              (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
           </div>
         </div>
         <div class="card-footer">
@@ -53,7 +45,8 @@
           <h5 class="card-category">2018 Sales</h5>
           <h4 class="card-title">All products</h4>
           <div ngbDropdown>
-            <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" ngbDropdownToggle>
+            <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret"
+              ngbDropdownToggle>
               <i class="now-ui-icons loader_gear"></i>
             </button>
             <div ngbDropdownMenu class="dropdown-menu-right">
@@ -67,14 +60,10 @@
         <div class="card-body">
           <div class="chart-area">
             <!-- <canvas id="lineChartExampleWithNumbersAndGrid"></canvas> -->
-            <canvas baseChart id="lineChartExampleWithNumbersAndGrid"
-                        [datasets]="lineChartWithNumbersAndGridData"
-                        [labels]="lineChartWithNumbersAndGridLabels"
-                        [colors]="lineChartWithNumbersAndGridColors"
-                        [options]="lineChartWithNumbersAndGridOptions"
-                        [chartType]="lineChartWithNumbersAndGridType"
-                        (chartHover)="chartHovered($event)"
-                        (chartClick)="chartClicked($event)"></canvas>
+            <canvas baseChart id="lineChartExampleWithNumbersAndGrid" [datasets]="lineChartWithNumbersAndGridData"
+              [labels]="lineChartWithNumbersAndGridLabels" [colors]="lineChartWithNumbersAndGridColors"
+              [options]="lineChartWithNumbersAndGridOptions" [chartType]="lineChartWithNumbersAndGridType"
+              (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
           </div>
         </div>
         <div class="card-footer">
@@ -92,14 +81,10 @@
         </div>
         <div class="card-body">
           <div class="chart-area">
-            <canvas baseChart id="barChartSimpleGradientsNumbers"
-                        [datasets]="lineChartGradientsNumbersData"
-                        [labels]="lineChartGradientsNumbersLabels"
-                        [colors]="lineChartGradientsNumbersColors"
-                        [options]="lineChartGradientsNumbersOptions"
-                        [chartType]="lineChartGradientsNumbersType"
-                        (chartHover)="chartHovered($event)"
-                        (chartClick)="chartClicked($event)"></canvas>
+            <canvas baseChart id="barChartSimpleGradientsNumbers" [datasets]="lineChartGradientsNumbersData"
+              [labels]="lineChartGradientsNumbersLabels" [colors]="lineChartGradientsNumbersColors"
+              [options]="lineChartGradientsNumbersOptions" [chartType]="lineChartGradientsNumbersType"
+              (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
           </div>
         </div>
         <div class="card-footer">
@@ -132,10 +117,12 @@
                   </td>
                   <td class="text-left">Sign contract for "What are conference organizers afraid of?"</td>
                   <td class="td-actions text-right">
-                    <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
+                    <button type="button" rel="tooltip" title=""
+                      class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                       <i class="now-ui-icons ui-2_settings-90"></i>
                     </button>
-                    <button type="button" rel="tooltip" title="" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
+                    <button type="button" rel="tooltip" title=""
+                      class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
                       <i class="now-ui-icons ui-1_simple-remove"></i>
                     </button>
                   </td>
@@ -151,10 +138,12 @@
                   </td>
                   <td class="text-left">Lines From Great Russian Literature? Or E-mails From My Boss?</td>
                   <td class="td-actions text-right">
-                    <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
+                    <button type="button" rel="tooltip" title=""
+                      class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                       <i class="now-ui-icons ui-2_settings-90"></i>
                     </button>
-                    <button type="button" rel="tooltip" title="" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
+                    <button type="button" rel="tooltip" title=""
+                      class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
                       <i class="now-ui-icons ui-1_simple-remove"></i>
                     </button>
                   </td>
@@ -168,13 +157,16 @@
                       </label>
                     </div>
                   </td>
-                  <td class="text-left">Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                  <td class="text-left">Flooded: One year later, assessing what was lost and what was found when a
+                    ravaging rain swept through metro Detroit
                   </td>
                   <td class="td-actions text-right">
-                    <button type="button" rel="tooltip" title="" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
+                    <button type="button" rel="tooltip" title=""
+                      class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
                       <i class="now-ui-icons ui-2_settings-90"></i>
                     </button>
-                    <button type="button" rel="tooltip" title="" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
+                    <button type="button" rel="tooltip" title=""
+                      class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
                       <i class="now-ui-icons ui-1_simple-remove"></i>
                     </button>
                   </td>
@@ -194,8 +186,8 @@
     <div class="col-md-6">
       <div class="card">
         <div class="card-header">
-          <h5 class="card-category">All Persons List</h5>
-          <h4 class="card-title"> Employees Stats</h4>
+          <h5 class="card-category">All Countries List</h5>
+          <h4 class="card-title"> Country Stats</h4>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -266,7 +258,7 @@
                   </td>
                   <td>
                     Feldkirchen in Kärnten
-                  </td>
+                  </td> 
                   <td class="text-right">
                     $63,542
                   </td>
@@ -295,16 +287,17 @@
 
   <div class="row">
     <div class="col-md-12">
-      <div class="card card-tasks">
+      <div class="card">
         <div class="card-header ">
           <h4 class="card-title">Apex</h4>
         </div>
         <div class="card-body ">
           <div class="table-full-width table-responsive">
-            <iframe src="https://apex.oracle.com/pls/apex/f?p=72102" title="Apex" width="100%" height="100%" style="border: none ;"> </iframe>
+            <iframe src="https://apex.oracle.com/pls/apex/f?p=72102" title="Apex" width="100%" height="1200px"
+              style="border: none ;"> </iframe>
           </div>
         </div>
-      </div>    
+      </div>
     </div>
   </div>
 </div>

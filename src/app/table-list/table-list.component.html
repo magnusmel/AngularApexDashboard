@@ -8,24 +8,40 @@
           <h4 class="card-title"> Simple Table</h4>
         </div>
         <div class="card-body">
+          
+
+          <!-- 
+          <ul>
+            <li>test for ItemsArray</li>
+            <li *ngFor="let item of ItemsArray; let i = index">
+              {{i}} {{item}}
+            </li>
+          </ul> -->
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
                 <th>
-                  Name
+                  COUNTRY_ID
                 </th>
                 <th>
-                  Country
+                  NAME
                 </th>
                 <th>
-                  City
+                  NATIONALITY
                 </th>
                 <th class="text-right">
-                  Salary
+                  COUNTRY_CODE
                 </th>
               </thead>
               <tbody>
-                <tr>
+                <tr *ngFor="let item of ItemsArray | keyvalue ">
+                  <td>{{ item.key | json }} : {{ item.value | json }}</td>
+                  <td>{{ item.key }}</td>
+                  <td>{{ item.key }}</td>
+                  <td>{{ item.key }}</td>
+                </tr>
+
+                <!-- <tr>
                   <td>
                     Dakota Rice
                   </td>
@@ -122,7 +138,7 @@
                   <td class="text-right">
                     $98,615
                   </td>
-                </tr>
+                </tr> -->
               </tbody>
             </table>
           </div>
