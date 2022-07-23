@@ -9,14 +9,6 @@
         </div>
         <div class="card-body">
           
-
-          <!-- 
-          <ul>
-            <li>test for ItemsArray</li>
-            <li *ngFor="let item of ItemsArray; let i = index">
-              {{i}} {{item}}
-            </li>
-          </ul> -->
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
@@ -34,11 +26,11 @@
                 </th>
               </thead>
               <tbody>
-                <tr *ngFor="let item of ItemsArray | keyvalue ">
-                  <td>{{ item.key | json }} : {{ item.value | json }}</td>
-                  <td>{{ item.key }}</td>
-                  <td>{{ item.key }}</td>
-                  <td>{{ item.key }}</td>
+                <tr *ngFor="let item of ItemsArray ">
+                  <td>{{ item.country_id }} </td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.nationality }}</td>
+                  <td>{{ item.country_code }}</td>
                 </tr>
 
                 <!-- <tr>
@@ -269,6 +261,7 @@
                 </tr>
               </tbody>
             </table>
+
           </div>
         </div>
       </div>
