@@ -14,6 +14,7 @@ import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { ApextestComponent } from '../../apextest/apextest.component'; //Satya - Added to Create Apex test routing
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
+    ApextestComponent, //Satya - Added to Create Apex test routing
   ]
 })
 
