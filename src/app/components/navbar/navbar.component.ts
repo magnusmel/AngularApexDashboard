@@ -2,6 +2,9 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
+import { OAuthService } from 'angular-oauth2-oidc';
+import { authCodeFlowConfig } from '../../sso.config';
+import { JwksValidationHandler } from 'angular-oauth2-oidc-jwks';
 import Chart from 'chart.js';
 
 @Component({
@@ -18,7 +21,10 @@ export class NavbarComponent implements OnInit {
 
     public isCollapsed = true;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(location: Location,  private element: ElementRef, private router: Router, private oauthService:OAuthService) {
+          
+      this.configureSignleSignOn();
+      
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -152,4 +158,15 @@ export class NavbarComponent implements OnInit {
       }
       return 'Dashboard';
     }
-}
+
+    configureSignleSignOn(){
+      this.oauthService.configure(authCodeFlowConfig);
+      this.oauthService.tokenValidationHandler = new JwksValidationHandler();
+      this.oauthService.loadDiscoveryDocumentAndTryLogin();
+    }
+
+    logout(){
+    this.oauthService.logOut();
+    console.debug('logout button pressed');
+    }
+}                                 

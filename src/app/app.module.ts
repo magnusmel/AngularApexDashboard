@@ -12,6 +12,7 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { OAuthModule } from 'angular-oauth2-oidc'; //imported for OAuth SSO login
 //import { ApextestComponent } from './apextest/apextest.component';
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     RouterModule,
     AppRoutingModule,
     NgbModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    OAuthModule.forRoot()
   ],
   declarations: [
     AppComponent,
