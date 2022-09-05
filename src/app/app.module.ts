@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
-import { IFrameComponent } from './iframe/iframe.component'; //imported for OAuth SSO login
+ //imported for OAuth SSO login
 //import { ApextestComponent } from './apextest/apextest.component';
 
 @NgModule({
@@ -30,9 +30,8 @@ import { IFrameComponent } from './iframe/iframe.component'; //imported for OAut
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
-    IFrameComponent
-
+    AdminLayoutComponent
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

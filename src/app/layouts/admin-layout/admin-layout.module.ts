@@ -15,7 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ApextestComponent } from '../../apextest/apextest.component'; //Satya - Added to Create Apex test routing
-
+import { IFrameComponent } from '../../iframe/iframe.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -34,6 +34,7 @@ import { ApextestComponent } from '../../apextest/apextest.component'; //Satya -
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
+    IFrameComponent,
     ApextestComponent, //Satya - Added to Create Apex test routing
   ]
 })

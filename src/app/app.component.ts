@@ -28,7 +28,6 @@ export class AppComponent {
   // login(){
   //   this.oauthService.initImplicitFlow();
   // }
-
   // logout(){
   //   this.oauthService.logOut();
   //   console.debug('logout button pressed');

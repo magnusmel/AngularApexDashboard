@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { IFrameComponent } from '../iframe/iframe.component';
-
 
 @Component({
   selector: 'app-dashboard',

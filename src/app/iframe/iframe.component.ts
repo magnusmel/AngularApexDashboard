@@ -9,13 +9,13 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class IFrameComponent implements OnInit {
   public url: SafeResourceUrl;
-  private apexappid = '72102'; 
+  private apexappid = ''; 
 
 
   constructor(private route: ActivatedRoute, private sanitizer: DomSanitizer, private router: Router) {
     this.route.url.subscribe(urlSegments => {
-      // Create a unique URL each time so the iframe will detect the change
-      const requestedUrl = 'https://apex.oracle.com/pls/apex/f?p=' + this.apexappid;
+      // Apex URL  change
+      const requestedUrl = 'https://stackoverflow.com' ;
       console.log(requestedUrl);
 
       // Angular by default sanitises a URL, we need to bypass that so the full URL is rendered
