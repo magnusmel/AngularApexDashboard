@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import { IFrameComponent } from '../iframe/iframe.component';
 
 @Component({
   selector: 'app-dashboard',
