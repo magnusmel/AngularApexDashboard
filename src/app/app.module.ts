@@ -31,7 +31,7 @@ import { IFrameComponent } from './iframe/iframe.component'; //imported for OAut
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    IFrameComponent,
+    IFrameComponent
 
   ],
   providers: [],
