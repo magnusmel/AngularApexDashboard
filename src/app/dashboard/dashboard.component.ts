@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { IFrameComponent } from '../iframe/iframe.component';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -8,6 +10,10 @@ import { IFrameComponent } from '../iframe/iframe.component';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  name = 'Set iframe source';
+  url: string = 'https://apex.oracle.com/pls/apex/f?p=72102';
+  urlSafe: SafeResourceUrl;
+
   public lineBigDashboardChartType;
   public gradientStroke;
   public chartColor;
@@ -58,9 +64,11 @@ export class DashboardComponent implements OnInit {
       return "rgb(" + r + ", " + g + ", " + b + ")";
     }
   }
-  constructor() { }
+  constructor(public sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+
     this.chartColor = "#FFFFFF";
     this.canvas = document.getElementById("bigDashboardChart");
     this.ctx = this.canvas.getContext("2d");

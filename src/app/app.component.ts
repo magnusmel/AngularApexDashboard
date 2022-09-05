@@ -12,15 +12,19 @@ import { JwksValidationHandler } from 'angular-oauth2-oidc-jwks';
 export class AppComponent {
 
   constructor(private oauthService:OAuthService){
-    this.configureSignleSignOn();
+    this.configureSingleSignOn();
   }
 
-  configureSignleSignOn(){
+  configureSingleSignOn(){
     this.oauthService.configure(authCodeFlowConfig);
     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
+    this.oauthService.setStorage(localStorage);
     this.oauthService.loadDiscoveryDocumentAndLogin();
   }
 
+  checksessionstorage() {
+    console.log(localStorage);
+  }
   // login(){
   //   this.oauthService.initImplicitFlow();
   // }
