@@ -1,2 +1,11 @@
 <!-- <iframe [attr.src]="url"></iframe> -->
-<iframe [attr.src]="url" > </iframe>
+<p> Child Component Here Lorem Ipsum </p>
+<p>Send Message: <button id="message_button" (click)="sendMessage()">Hi parent</button></p>
+<p>Got Message: {{currentCity}}</p>
+<div id="results"></div>
+
+<iframe [src]="url"  #apexframes>
+
+    <input type="text" id="city-input" #newcity> 
+
+</iframe>

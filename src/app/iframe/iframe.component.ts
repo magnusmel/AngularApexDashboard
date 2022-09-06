@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter , OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -11,11 +11,18 @@ export class IFrameComponent implements OnInit {
   public url: SafeResourceUrl;
   private apexappid = ''; 
 
+  @Input()  currentCity = 'London';
+  @Output() newCityEvent = new EventEmitter<string>();
+
+
 
   constructor(private route: ActivatedRoute, private sanitizer: DomSanitizer, private router: Router) {
     this.route.url.subscribe(urlSegments => {
+      
       // Apex URL  change
-      const requestedUrl = 'https://stackoverflow.com' ;
+      // const requestedUrl = 'https://apex.oracle.com/pls/apex/f?p=72102:1&x01=TOKEN:ABCSATYAtesttoken' ;
+      const requestedUrl = 'https://globalminds.biz' ;
+
       console.log(requestedUrl);
 
       // Angular by default sanitises a URL, we need to bypass that so the full URL is rendered
@@ -24,6 +31,10 @@ export class IFrameComponent implements OnInit {
     });
 
     this.listenForFallbackRoutingEvents();
+  }
+
+  addNewCity(value: string) {
+    this.newCityEvent.emit(value);
   }
 
 
@@ -46,9 +57,36 @@ export class IFrameComponent implements OnInit {
         this.router.navigateByUrl(url);
       }
     }, false);
+
+    parent.postMessage("loadMyOrders","*");  //  `*` on any domain      
+
+  }
+
+ 
+  sendMessage(){
+    var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+    var eventer = window[eventMethod];
+    var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+    // Listen to message from child window
+    eventer(messageEvent,function(e) {
+        var key = e.message ? "message" : "data";
+        var data = e[key];
+        //run function//
+    },false);
+
+
+    //child page -    
+
+    parent.postMessage("loadMyOrders","*");  //  `*` on any domain      
   }
 
   ngOnInit() {
+//const frame = window.parent.document.getElementbyId(elementId: 'loginFrame')
+  
+  console.log(window.parent.postMessage('hello from iframe', '*'));
+
   }
+
 
 }
