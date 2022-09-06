@@ -11,6 +11,8 @@ export class DashboardComponent implements OnInit {
   name = 'Set iframe source';
   url: string = 'https://apex.oracle.com/pls/apex/f?p=72102';
   urlSafe: SafeResourceUrl;
+  
+  city = 'Paris';
 
   public lineBigDashboardChartType;
   public gradientStroke;

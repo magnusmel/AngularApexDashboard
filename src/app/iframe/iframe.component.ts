@@ -12,8 +12,11 @@ export class IFrameComponent implements OnInit {
   private apexappid = ''; 
 
 
+
+
   constructor(private route: ActivatedRoute, private sanitizer: DomSanitizer, private router: Router) {
     this.route.url.subscribe(urlSegments => {
+      
       // Apex URL  change
       const requestedUrl = 'http://localhost:4200/render' ;
     
@@ -48,9 +51,36 @@ export class IFrameComponent implements OnInit {
         this.router.navigateByUrl(url);
       }
     }, false);
+
+    parent.postMessage("loadMyOrders","*");  //  `*` on any domain      
+
+  }
+
+ 
+  sendMessage(){
+    var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+    var eventer = window[eventMethod];
+    var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+    // Listen to message from child window
+    eventer(messageEvent,function(e) {
+        var key = e.message ? "message" : "data";
+        var data = e[key];
+        //run function//
+    },false);
+
+
+    //child page -    
+
+    parent.postMessage("loadMyOrders","*");  //  `*` on any domain      
   }
 
   ngOnInit() {
+//const frame = window.parent.document.getElementbyId(elementId: 'loginFrame')
+  
+  console.log(window.parent.postMessage('hello from iframe', '*'));
+
   }
+
 
 }
