@@ -18,7 +18,7 @@ export class IFrameComponent implements OnInit {
     this.route.url.subscribe(urlSegments => {
       
       // Apex URL  change
-      const requestedUrl = 'http://localhost:4200/render' ;
+      const requestedUrl = 'https://apex.oracle.com/pls/apex/f?p=73255' ;
     
 
       // Angular by default sanitises a URL, we need to bypass that so the full URL is rendered
