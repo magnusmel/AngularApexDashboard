@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -15,8 +15,8 @@ export class IFrameComponent implements OnInit {
   constructor(private route: ActivatedRoute, private sanitizer: DomSanitizer, private router: Router) {
     this.route.url.subscribe(urlSegments => {
       // Apex URL  change
-      const requestedUrl = 'https://stackoverflow.com' ;
-      console.log(requestedUrl);
+      const requestedUrl = 'http://localhost:4200/render' ;
+    
 
       // Angular by default sanitises a URL, we need to bypass that so the full URL is rendered
       // NOTE: Need to look into security considerations of this
@@ -25,6 +25,8 @@ export class IFrameComponent implements OnInit {
 
     this.listenForFallbackRoutingEvents();
   }
+
+  
 
 
   /*

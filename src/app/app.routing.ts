@@ -4,6 +4,9 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { IFrameComponent } from './iframe/iframe.component';
+import { RenderComponent } from './render/render.component';
+
 
 const routes: Routes =[
   {
@@ -18,6 +21,11 @@ const routes: Routes =[
       path: '',
       loadChildren: () => import('./layouts/admin-layout/admin-layout.module').then(x=>x.AdminLayoutModule)
   }]},
+  {
+    path: 'render',
+    component: RenderComponent,
+  },
+  
   {
     path: '**',
     redirectTo: 'dashboard'
