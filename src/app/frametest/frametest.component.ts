@@ -3,11 +3,11 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { IFrameComponent } from '../iframe/iframe.component';
 
 @Component({
-  selector: 'app-apextest',
-  templateUrl: './apextest.component.html',
-  styleUrls: ['./apextest.component.css']
+  selector: 'app-frametest',
+  templateUrl: './frametest.component.html',
+  styleUrls: ['./frametest.component.css']
 })
-export class ApextestComponent implements OnInit {
+export class FrametestComponent implements OnInit {
   randomNumber: any=''
   public token: string;
   public messageTime: string;
@@ -50,6 +50,10 @@ if (e.data.for=="parent")
   {
   this.randomNumber =Math.floor(Math.random() * 1000);
   }
+}
+
+sendToParent(){ 
+alert('HI');
 }
 
 

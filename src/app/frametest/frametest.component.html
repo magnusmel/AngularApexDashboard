@@ -5,7 +5,7 @@
       <div class="card">
         <div class="card-header">
           <h4 class="card-title">Apex Firebase Branch</h4>
-          <h6>Sample Apex Application for Demo purposes</h6>
+          <h6>iFrame Test for Demo purposes</h6>
           <p>
             Access Token Expires at <span style="color:red">{{ tokenexpirytime }}</span>
           </p>
@@ -31,8 +31,9 @@
         </div>
         <div class="card-body">
           <div class="table-full-width table-responsive">
-            <app-iframe></app-iframe>
-          
+            <!-- <app-iframe></app-iframe> -->
+            <iframe srcdoc="<p>Hello world!</p> <button (click)=sendToParent()>Send To parent</button>"> 
+            </iframe>
           </div>
         </div>
       </div>

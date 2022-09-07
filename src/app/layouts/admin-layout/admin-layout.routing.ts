@@ -9,6 +9,7 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ApextestComponent } from '../../apextest/apextest.component';
+import { FrametestComponent } from '../../frametest/frametest.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -18,6 +19,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
-    { path: 'apextest',       component: ApextestComponent } //Satya - Added to create Apex Test Routing Path
+    { path: 'apextest',       component: ApextestComponent },
+    { path: 'frametest',       component: FrametestComponent }
+
     // { path: 'upgrade',        component: UpgradeComponent }
 ];

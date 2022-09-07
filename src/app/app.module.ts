@@ -37,7 +37,6 @@ import { InnerComponent } from './inner/inner.component';
     RenderComponent,
     InnerComponent
    
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

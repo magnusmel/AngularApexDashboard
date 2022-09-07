@@ -14,8 +14,10 @@ import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
-import { ApextestComponent } from '../../apextest/apextest.component'; //Satya - Added to Create Apex test routing
+import { ApextestComponent } from '../../apextest/apextest.component'; // Added to Create Apex test routing
 import { IFrameComponent } from '../../iframe/iframe.component';
+import { FrametestComponent } from '../../frametest/frametest.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -35,7 +37,8 @@ import { IFrameComponent } from '../../iframe/iframe.component';
     MapsComponent,
     NotificationsComponent,
     IFrameComponent,
-    ApextestComponent, //Satya - Added to Create Apex test routing
+    ApextestComponent,
+    FrametestComponent
   ]
 })
 
