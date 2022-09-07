@@ -89,16 +89,16 @@ export class IFrameComponent implements OnInit {
   sendToParent(){ 
        window.parent.window.postMessage({"for":"parent","data":"from iframe"}, '*');
   }
-  @HostListener('window:message',['$event'])
-  onMessage(e) 
-  {
-    console.log(e)
+  // @HostListener('window:message',['$event'])
+  // onMessage(e) 
+  // {
+  //   console.log(e)
 
-    if (e.data.for=="iframe")
-      {
-      this.randomNumber =  Math.floor(Math.random() * 1000);
-      }
-  }
+  //   if (e.data.for=="iframe")
+  //     {
+  //     this.randomNumber =  Math.floor(Math.random() * 1000);
+  //     }
+  // }
 
   changeApexPage(url) {
     this.url = this.sanitizer.bypassSecurityTrustResourceUrl(url);

@@ -16,7 +16,7 @@
             Message received @ <span style="color:blue">{{ messageTime }}</span>
           </p>
           <p>
-            Message Data:
+            Message From Apex:
             <span style="color:green" *ngIf="!!messageData">{{
               messageData.toUpperCase()
             }}</span>
@@ -24,7 +24,6 @@
           
           <button (click)="changeIFrameApexPage(first_url)">Change Apex Page </button>
           <button (click)="changeIFrameApexPage(second_url)">Change Apex Page </button>
-          <div><p>Message From Iframe: {{ randomNumber }}</p></div>
 
           
           
