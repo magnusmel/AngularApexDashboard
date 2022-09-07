@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { RenderComponent } from './render/render.component';
+import { InnerComponent } from './inner/inner.component';
 
  //imported for OAuth SSO login
 //import { ApextestComponent } from './apextest/apextest.component';
@@ -33,7 +34,8 @@ import { RenderComponent } from './render/render.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    RenderComponent
+    RenderComponent,
+    InnerComponent
    
     
   ],
