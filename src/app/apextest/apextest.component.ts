@@ -16,20 +16,24 @@ export class ApextestComponent implements OnInit {
   public urlSource: SafeResourceUrl;
   private allowedMessages = ['token', 'end', 'start'];
   public timeLeft = 10;
-  public tokenid = localStorage.getItem('id_token');
-  public tokenexpirytime = localStorage.getItem('expires_at');
+  public tokenid = '';
+  public tokenexpirytime =  '';
   public first_url = "https://apex.oracle.com/pls/apex/f?p=73255:41";
   public second_url = "https://apex.oracle.com/pls/apex/f?p=73255:9";
 
-  private readonly src = 'https://angular-ivy-u6azts.stackblitz.io';
+  private readonly src = 'https://oracle.apex.com';
 
   @ViewChild('data_iframe') theframe: ElementRef;
  
   constructor() {
-    console.log('TOKENID-', this.tokenid);
+    this.tokenid = localStorage.getItem('id_token');
+    this.tokenexpirytime = localStorage.getItem('expires_at');
+    console.log('constructor()->TOKENID-', this.tokenid);
+
    }
 
   ngOnInit(): void {  
+    // this.theframe.nativeElement  
     // window.addEventListener(
     //   'message',
     //   (event) => {
@@ -44,8 +48,15 @@ export class ApextestComponent implements OnInit {
 
   }
 
+  // sendMessageToApexPage(token) {
+  //   document.getElementById('data_iframe')
+
+  // }
   changeIFrameApexPage(url) {
+    console.log('New URL is: ', url);    
   }
+
+  
 
   sendToIframe(){
     var iframe = document.getElementById('data_iframe');
@@ -59,18 +70,18 @@ export class ApextestComponent implements OnInit {
   @HostListener('window:message',['$event'])
   onMessage(e)
 {
-  console.log('Caught you: ' + e);
+  // console.log('Caught you: ' + e);
 
   this.messageTime = new Date().toLocaleTimeString();
   this.messageData = e.data;
+  if (e.data == 'end') {
+    console.log('Found End Signal');
+  }  else if (e.data == 'start') {
+    console.log('Found start Signal');
+  }  else if (e.data == 'token') {
+    console.log('Found token Signal');   
+  }
 
-// if (e.data.for=="parent")
-//   {
-//   // this.randomNumber =Math.floor(Math.random() * 1000);
-//   this.messageData = e.data;
-//   console.log('Print message T: ' + this.messageData);
-
-//   }
 }
 
 

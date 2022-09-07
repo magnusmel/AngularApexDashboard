@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { RenderComponent } from '../render/render.component';
@@ -13,9 +13,9 @@ export class IFrameComponent implements OnInit {
   private apexappid = ''; 
   randomNumber: any='';
   public message = '';
-
-
-
+ 
+  @Input() tokenValue:string;
+  
 
   constructor(private route: ActivatedRoute, private sanitizer: DomSanitizer, private router: Router) {
     this.route.url.subscribe(urlSegments => {
@@ -82,6 +82,7 @@ export class IFrameComponent implements OnInit {
 //const frame = window.parent.document.getElementbyId(elementId: 'loginFrame')
   
   console.log(window.parent.postMessage('hello from iframe', '*'));
+  console.log('IFrame - Token Received From Parent: ' + this.tokenValue);
 
   }
 
