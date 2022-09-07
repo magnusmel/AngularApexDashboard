@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { data } from 'jquery';
 import { IFrameComponent } from '../iframe/iframe.component';
 
 @Component({
@@ -20,6 +21,8 @@ export class ApextestComponent implements OnInit {
   public first_url = "https://apex.oracle.com/pls/apex/f?p=73255:41";
   public second_url = "https://apex.oracle.com/pls/apex/f?p=73255:9";
 
+  private readonly src = 'https://angular-ivy-u6azts.stackblitz.io';
+
   @ViewChild('data_iframe') theframe: ElementRef;
  
   constructor() {
@@ -27,6 +30,18 @@ export class ApextestComponent implements OnInit {
    }
 
   ngOnInit(): void {  
+    // window.addEventListener(
+    //   'message',
+    //   (event) => {
+     
+    //         this.messageTime = new Date().toLocaleTimeString();
+    //         this.messageData = event.data;
+                  
+    //   },
+    //   false
+    // );
+
+
   }
 
   changeIFrameApexPage(url) {
@@ -44,12 +59,18 @@ export class ApextestComponent implements OnInit {
   @HostListener('window:message',['$event'])
   onMessage(e)
 {
-  console.log(e)
+  console.log('Caught you: ' + e);
 
-if (e.data.for=="parent")
-  {
-  this.randomNumber =Math.floor(Math.random() * 1000);
-  }
+  this.messageTime = new Date().toLocaleTimeString();
+  this.messageData = e.data;
+
+// if (e.data.for=="parent")
+//   {
+//   // this.randomNumber =Math.floor(Math.random() * 1000);
+//   this.messageData = e.data;
+//   console.log('Print message T: ' + this.messageData);
+
+//   }
 }
 
 
