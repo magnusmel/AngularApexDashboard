@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { RenderComponent } from '../render/render.component';
 
 @Component({
   selector: 'app-iframe',
@@ -10,6 +11,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class IFrameComponent implements OnInit {
   public url: SafeResourceUrl;
   private apexappid = ''; 
+  randomNumber:any=''
 
 
 
@@ -82,5 +84,21 @@ export class IFrameComponent implements OnInit {
 
   }
 
+
+  sendToParent(){ 
+   
+ 
+    window.parent.window.postMessage({"for":"parent","data":"from iframe"}, '*');
+  }
+  @HostListener('window:message',['$event'])
+  onMessage(e) 
+  {
+    console.log(e)
+
+    if (e.data.for=="iframe")
+      {
+      this.randomNumber =Math.floor(Math.random() * 10);
+      }
+  }
 
 }

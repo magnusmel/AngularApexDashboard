@@ -9,9 +9,9 @@ export class ApextestComponent implements OnInit {
   randomNumber:any=''
   constructor() { }
 
-  ngOnInit(): void {
-   
+  ngOnInit(): void {  
   }
+
   sendToIframe(){
     var iframe = document.getElementById('data_iframe');
     if (iframe == null) return;
@@ -19,6 +19,7 @@ export class ApextestComponent implements OnInit {
  
     iWindow.postMessage({"for":"iframe","data":"from parent"}, '*');
   }
+
   @HostListener('window:message',['$event'])
   onMessage(e)
 {
@@ -29,7 +30,6 @@ if (e.data.for=="parent")
   this.randomNumber =Math.floor(Math.random() * 10);
   }
 }
-
 
 
 }
