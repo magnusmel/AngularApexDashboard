@@ -72,6 +72,18 @@ export class ApextestComponent implements OnInit {
 
   }
 
+  sendIframeToken(){
+    // var iframe = document.getElementById('data_iframe');
+    // if (iframe == null) return;
+    // var iWindow = (<HTMLIFrameElement>iframe).contentWindow;
+
+    const element: HTMLIFrameElement = document.getElementById('data_iframe') as HTMLIFrameElement;
+    const iframe = element.contentWindow;
+   
+    iframe.postMessage(this.tokenid, '*');
+
+  }
+
   @HostListener('window:message',['$event'])
   onMessage(e)
 {
@@ -86,6 +98,7 @@ export class ApextestComponent implements OnInit {
     console.log('Found start Signal');
   }  else if (e.data == 'token') {
     console.log('Found token Signal');   
+    this.sendIframeToken();
   //  win.postMessage(this.tokenexpirytime, "*");
 
   }
