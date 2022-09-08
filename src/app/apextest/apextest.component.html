@@ -18,12 +18,12 @@
           <p>
             Message From Apex:
             <span style="color:green" *ngIf="!!messageData">{{
-              messageData.toUpperCase()
+              messageData
             }}</span>
           </p>
           
           <!-- <button (click)="sendMessageToApexPage(tokenid)">Send Message to Apex </button> -->
-          <!-- <button (click)="changeIFrameApexPage(second_url)">Change Apex Page </button> -->
+          <button (click)="sendToIframe()">Send to IFrame </button>
 
           
           

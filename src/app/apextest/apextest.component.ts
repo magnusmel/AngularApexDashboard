@@ -59,27 +59,35 @@ export class ApextestComponent implements OnInit {
   
 
   sendToIframe(){
-    var iframe = document.getElementById('data_iframe');
-    if (iframe == null) return;
-    var iWindow = (<HTMLIFrameElement>iframe).contentWindow;
+    // var iframe = document.getElementById('data_iframe');
+    // if (iframe == null) return;
+    // var iWindow = (<HTMLIFrameElement>iframe).contentWindow;
+
+    const element: HTMLIFrameElement = document.getElementById('data_iframe') as HTMLIFrameElement;
+    const iframe = element.contentWindow;
     //  iWindow.localStorage. 
     // iWindow.frameElement.appendChild
-    // iWindow.postMessage({"for":"iframe","data":"from parent"}, '*');
+    //  iframe.postMessage({"for":"iframe","data":"from parent"}, '*');
+    iframe.postMessage(this.tokenexpirytime, '*');
+
   }
 
   @HostListener('window:message',['$event'])
   onMessage(e)
 {
   // console.log('Caught you: ' + e);
-
+  // const win = this.theframe.nativeElement.contentWindow;
   this.messageTime = new Date().toLocaleTimeString();
   this.messageData = e.data;
   if (e.data == 'end') {
     console.log('Found End Signal');
+
   }  else if (e.data == 'start') {
     console.log('Found start Signal');
   }  else if (e.data == 'token') {
     console.log('Found token Signal');   
+  //  win.postMessage(this.tokenexpirytime, "*");
+
   }
 
 }
