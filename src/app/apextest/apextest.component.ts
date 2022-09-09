@@ -59,14 +59,9 @@ export class ApextestComponent implements OnInit {
   
 
   sendToIframe(){
-    // var iframe = document.getElementById('data_iframe');
-    // if (iframe == null) return;
-    // var iWindow = (<HTMLIFrameElement>iframe).contentWindow;
-
+    
     const element: HTMLIFrameElement = document.getElementById('data_iframe') as HTMLIFrameElement;
     const iframe = element.contentWindow;
-    //  iWindow.localStorage. 
-    // iWindow.frameElement.appendChild
     //  iframe.postMessage({"for":"iframe","data":"from parent"}, '*');
     iframe.postMessage(this.tokenexpirytime, '*');
 
@@ -91,17 +86,18 @@ export class ApextestComponent implements OnInit {
   // const win = this.theframe.nativeElement.contentWindow;
   this.messageTime = new Date().toLocaleTimeString();
   this.messageData = e.data;
-  if (e.data == 'end') {
+  if( e.data == null)
+    console.log('Caught Null !');
+  else if (e.data == 'end') {
     console.log('Found End Signal');
-
   }  else if (e.data == 'start') {
     console.log('Found start Signal');
   }  else if (e.data == 'token') {
     console.log('Found token Signal');   
     this.sendIframeToken();
-  //  win.postMessage(this.tokenexpirytime, "*");
-
-  }
+  } else
+    console.log('Caught Unknown Verb Signal !');   
+    
 
 }
 

@@ -79,7 +79,6 @@ export class IFrameComponent implements OnInit {
   }
 
   ngOnInit() {
-//const frame = window.parent.document.getElementbyId(elementId: 'loginFrame')
   
   console.log(window.parent.postMessage('hello from iframe', '*'));
   console.log('IFrame - Token Received From Parent: ' + this.tokenValue);
@@ -90,16 +89,7 @@ export class IFrameComponent implements OnInit {
   sendToParent(){ 
        window.parent.window.postMessage({"for":"parent","data":"from iframe"}, '*');
   }
-  // @HostListener('window:message',['$event'])
-  // onMessage(e) 
-  // {
-  //   console.log(e)
-
-  //   if (e.data.for=="iframe")
-  //     {
-  //     this.randomNumber =  Math.floor(Math.random() * 1000);
-  //     }
-  // }
+ 
 
   changeApexPage(url) {
     this.url = this.sanitizer.bypassSecurityTrustResourceUrl(url);
