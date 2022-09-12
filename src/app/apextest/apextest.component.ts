@@ -33,25 +33,10 @@ export class ApextestComponent implements OnInit {
    }
 
   ngOnInit(): void {  
-    // this.theframe.nativeElement  
-    // window.addEventListener(
-    //   'message',
-    //   (event) => {
-     
-    //         this.messageTime = new Date().toLocaleTimeString();
-    //         this.messageData = event.data;
-                  
-    //   },
-    //   false
-    // );
-
 
   }
 
-  // sendMessageToApexPage(token) {
-  //   document.getElementById('data_iframe')
 
-  // }
   changeIFrameApexPage(url) {
     console.log('New URL is: ', url);    
   }
@@ -62,16 +47,11 @@ export class ApextestComponent implements OnInit {
     
     const element: HTMLIFrameElement = document.getElementById('data_iframe') as HTMLIFrameElement;
     const iframe = element.contentWindow;
-    //  iframe.postMessage({"for":"iframe","data":"from parent"}, '*');
     iframe.postMessage(this.tokenexpirytime, '*');
 
   }
 
   sendIframeToken(){
-    // var iframe = document.getElementById('data_iframe');
-    // if (iframe == null) return;
-    // var iWindow = (<HTMLIFrameElement>iframe).contentWindow;
-
     const element: HTMLIFrameElement = document.getElementById('data_iframe') as HTMLIFrameElement;
     const iframe = element.contentWindow;
    
@@ -82,8 +62,6 @@ export class ApextestComponent implements OnInit {
   @HostListener('window:message',['$event'])
   onMessage(e)
 {
-  // console.log('Caught you: ' + e);
-  // const win = this.theframe.nativeElement.contentWindow;
   this.messageTime = new Date().toLocaleTimeString();
   this.messageData = e.data;
   if( e.data == null)
