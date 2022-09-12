@@ -8,7 +8,7 @@ import { IFrameComponent } from '../iframe/iframe.component';
   styleUrls: ['./frametest.component.css']
 })
 export class FrametestComponent implements OnInit {
-  randomNumber: any=''
+  randomNumber: any = ''
   public token: string;
   public messageTime: string;
   public messageData: string;
@@ -21,18 +21,18 @@ export class FrametestComponent implements OnInit {
   public second_url = "https://apex.oracle.com/pls/apex/f?p=73255:9";
 
   @ViewChild('data_iframe') theframe: ElementRef;
- 
+
   constructor() {
     console.log('TOKENID-', this.tokenid);
-   }
+  }
 
-  ngOnInit(): void {  
+  ngOnInit(): void {
   }
 
   changeIFrameApexPage(url) {
   }
 
-  sendToIframe(){
+  sendToIframe() {
     var iframe = document.getElementById('data_iframe');
     if (iframe == null) return;
     var iWindow = (<HTMLIFrameElement>iframe).contentWindow;
@@ -41,20 +41,18 @@ export class FrametestComponent implements OnInit {
     // iWindow.postMessage({"for":"iframe","data":"from parent"}, '*');
   }
 
-  @HostListener('window:message',['$event'])
-  onMessage(e)
-{
-  console.log(e)
+  @HostListener('window:message', ['$event'])
+  onMessage(e) {
+    console.log(e)
 
-if (e.data.for=="parent")
-  {
-  this.randomNumber =Math.floor(Math.random() * 1000);
+    if (e.data.for == "parent") {
+      this.randomNumber = Math.floor(Math.random() * 1000);
+    }
   }
-}
 
-sendToParent(){ 
-alert('HI');
-}
+  sendToParent() {
+    alert('HI');
+  }
 
 
 }

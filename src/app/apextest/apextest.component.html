@@ -7,30 +7,29 @@
           <h4 class="card-title">Apex Firebase Branch</h4>
           <h6>Sample Apex Application for Demo purposes</h6>
           <p>
-            Access Token Expires at <span style="color:red">{{ tokenexpirytime }}</span>
+            Access Token Expires at
+            <span style="color: red">{{ tokenexpirytime }}</span>
           </p>
           <p>
-            Current Token <span style="color:red">{{ tokenid }}</span>
+            Current Token <span style="color: red">{{ tokenid }}</span>
           </p>
           <p>
-            Message received @ <span style="color:blue">{{ messageTime }}</span>
+            Message received @
+            <span style="color: blue">{{ messageTime }}</span>
           </p>
           <p>
             Message From Apex:
-            <span style="color:green" *ngIf="!!messageData">{{
+            <span style="color: green" *ngIf="!!messageData">{{
               messageData
             }}</span>
           </p>
-          
-          <button (click)="sendToIframe()">Send to IFrame </button>
 
-          
-          
+          <button (click)="sendToIframe()">Send to IFrame</button>
         </div>
+
         <div class="card-body">
           <div class="table-full-width table-responsive">
             <app-iframe [tokenValue]="tokenexpirytime"></app-iframe>
-          
           </div>
         </div>
       </div>
