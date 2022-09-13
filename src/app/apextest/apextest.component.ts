@@ -21,7 +21,7 @@ export class ApextestComponent implements OnInit {
   public first_url = "https://apex.oracle.com/pls/apex/f?p=73255:41";
   public second_url = "https://apex.oracle.com/pls/apex/f?p=73255:9";
 
-  private readonly src = 'https://oracle.apex.com';
+  private readonly src = 'https://apex.oracle.com';
 
   @ViewChild('data_iframe') theframe: ElementRef;
 
@@ -47,27 +47,37 @@ export class ApextestComponent implements OnInit {
 
     const element: HTMLIFrameElement = document.getElementById('data_iframe') as HTMLIFrameElement;
     const iframe = element.contentWindow;
-    iframe.postMessage(this.tokenexpirytime, '*');
+    iframe.postMessage(this.tokenexpirytime, this.src);  
 
   }
 
   sendIframeToken() {
+    console.log('sendIframeToken()', this.tokenid);
     const element: HTMLIFrameElement = document.getElementById('data_iframe') as HTMLIFrameElement;
     const iframe = element.contentWindow;
 
-    iframe.postMessage(this.tokenid, '*');
+    iframe.postMessage(this.tokenid, this.src);
 
   }
 
   @HostListener('window:message', ['$event'])
   onMessage(e) {
-    this.messageTime = new Date().toLocaleTimeString();
-    this.messageData = e.data;
-
-    if (this.allowedMessages.includes(this.messageData)) {
-      console.log('Authorized Message - The Message is:', this.messageData);
+    var origin = e.origin;
+    if(origin !== this.src) {
+      console.log(origin);
     } else {
-      console.log('Unauthorized Message - The Message is:', this.messageData);
+      this.messageTime = new Date().toLocaleTimeString();
+      this.messageData = e.data;
+
+      if (this.allowedMessages.includes(this.messageData)) {
+        console.log('Authorized Message - The Message is:', this.messageData);
+        if (e.data == 'token') {
+          this.sendIframeToken();
+          return;
+        }
+      } else {
+        console.log('Unauthorized Message - The Message is:', this.messageData);
+      }
     }
 
   }
