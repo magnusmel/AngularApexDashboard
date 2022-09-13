@@ -63,18 +63,12 @@ export class ApextestComponent implements OnInit {
   onMessage(e) {
     this.messageTime = new Date().toLocaleTimeString();
     this.messageData = e.data;
-    if (e.data == null)
-      console.log('Caught Null !');
-    else if (e.data == 'end') {
-      console.log('Found End Signal');
-    } else if (e.data == 'start') {
-      console.log('Found start Signal');
-    } else if (e.data == 'token') {
-      console.log('Found token Signal');
-      this.sendIframeToken();
-    } else
-      console.log('Caught Unknown Verb Signal !');
 
+    if (this.allowedMessages.includes(this.messageData)) {
+      console.log('Authorized Message - The Message is:', this.messageData);
+    } else {
+      console.log('Unauthorized Message - The Message is:', this.messageData);
+    }
 
   }
 
