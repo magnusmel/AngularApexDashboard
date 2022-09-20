@@ -23,6 +23,7 @@ export class ApextestComponent implements OnInit {
 
   private readonly src = 'https://apex.oracle.com'; // Oracle Apex domain
 
+  // Gets  a reference to the Iframe window
   @ViewChild('data_iframe') theframe: ElementRef;
 
   constructor() {
@@ -42,16 +43,16 @@ export class ApextestComponent implements OnInit {
   }
 
 
-// below function sends the token expiry time to IFrame upon being fired. Target Origin specified as Oracle Apex domain.
+  // below function sends the token expiry time to IFrame upon being fired. Target Origin specified as Oracle Apex domain.
   sendToIframe() {
 
     const element: HTMLIFrameElement = document.getElementById('data_iframe') as HTMLIFrameElement;
     const iframe = element.contentWindow;
-    iframe.postMessage(this.tokenexpirytime, this.src);  
+    iframe.postMessage(this.tokenexpirytime, this.src);
 
   }
 
-// below function sends the token id to IFrame upon being fired. Target Origin specified as Oracle Apex domain.
+  // below function sends the token id to IFrame upon being fired. Target Origin specified as Oracle Apex domain.
   sendIframeToken() {
     console.log('sendIframeToken()', this.tokenid);
     const element: HTMLIFrameElement = document.getElementById('data_iframe') as HTMLIFrameElement;
@@ -61,13 +62,13 @@ export class ApextestComponent implements OnInit {
 
   }
 
-// Below Host Listener, listens for a window message event. The messages from Iframe are captured and checked whether they are from
-// Oracle Apex domain (by checking e.origin) and whether they are are authorized (by checking against allowed message array)
-// If "token" signal is received a sendIFrameToken function is triggered to send token to the IFrame.
+  // Below Host Listener, listens for a window message event. The messages from Iframe are captured and checked whether they are from
+  // Oracle Apex domain (by checking e.origin) and whether they are are authorized (by checking against allowed message array)
+  // If "token" signal is received a sendIFrameToken function is triggered to send token to the IFrame.
   @HostListener('window:message', ['$event'])
   onMessage(e) {
     var origin = e.origin;
-    if(origin !== this.src) {
+    if (origin !== this.src) {
       console.log(origin);
     } else {
       this.messageTime = new Date().toLocaleTimeString();
