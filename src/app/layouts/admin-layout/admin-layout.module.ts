@@ -15,7 +15,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ApextestComponent } from '../../apextest/apextest.component'; // Added to Create Apex test routing
 import { IFrameComponent } from '../../iframe/iframe.component';
-import { FrametestComponent } from '../../frametest/frametest.component';
 
 @NgModule({
   imports: [
@@ -35,8 +34,7 @@ import { FrametestComponent } from '../../frametest/frametest.component';
     IconsComponent,
     NotificationsComponent,
     IFrameComponent,
-    ApextestComponent,
-    FrametestComponent
+    ApextestComponent
   ]
 })
 

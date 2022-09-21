@@ -8,7 +8,6 @@ import { IconsComponent } from '../../icons/icons.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ApextestComponent } from '../../apextest/apextest.component';
-import { FrametestComponent } from '../../frametest/frametest.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -18,7 +17,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons', component: IconsComponent },
     { path: 'notifications', component: NotificationsComponent },
     { path: 'apextest', component: ApextestComponent }
-    // { path: 'frametest', component: FrametestComponent }
 
     // { path: 'upgrade',        component: UpgradeComponent }
 ];
