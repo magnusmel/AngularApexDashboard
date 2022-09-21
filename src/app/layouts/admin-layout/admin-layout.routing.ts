@@ -17,8 +17,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'typography', component: TypographyComponent },
     { path: 'icons', component: IconsComponent },
     { path: 'notifications', component: NotificationsComponent },
-    { path: 'apextest', component: ApextestComponent },
-    { path: 'frametest', component: FrametestComponent }
+    { path: 'apextest', component: ApextestComponent }
+    // { path: 'frametest', component: FrametestComponent }
 
     // { path: 'upgrade',        component: UpgradeComponent }
 ];
